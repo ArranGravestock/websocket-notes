@@ -1,0 +1,13 @@
+.toolbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5); }
+  .toolbar p {
+    color: #aaa;
+    margin: 1em 0.5em 1em 0.5em; }
+
+/*# sourceMappingURL=Toolbar.css.map */
