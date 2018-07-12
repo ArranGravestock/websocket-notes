@@ -1,0 +1,40 @@
+@import 'mixins';
+
+.Note {
+    background-color: white;
+    @include shadow(0px, 0px, 5px, 0px, 50, 50, 50, 0.50);
+    margin: 1em;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: .5em;
+
+
+        header {
+            display: flex;
+            flex: auto;
+            justify-content: space-between;
+
+            h2 {
+                margin: 0;
+            }
+
+            .controls {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        section {
+            text-align: left;
+            flex: 1 100%;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            flex: 1 100%;
+        }
+    }
+}

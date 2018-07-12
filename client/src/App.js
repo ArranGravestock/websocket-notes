@@ -3,8 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import Navigation from './nav'
 import Toolbar from './toolbar'
+import Note from './Notes'
 
 class App extends Component {
+
+  componentWillMount() {
+    //wss connect
+    let webSocket = new WebSocket("ws://localhost:3001")
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -15,7 +23,7 @@ class App extends Component {
           </header>
 
           <div className="notes-wrapper">
-            <p>test content</p>
+            <Note title="test-title" content="test-content" user="last-user"/>
           </div>
         </div>
 

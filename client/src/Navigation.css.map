@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "AACI,iBAAM;EACF,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EAET,oBAAG;IACC,UAAU,EAAE,IAAI;IAChB,OAAO,EAAE,GAAG;IACZ,SAAS,EAAE,KAAK;IAChB,MAAM,EAAE,OAAO",
-"sources": ["Navigation.scss"],
-"names": [],
-"file": "Navigation.css"
+    "version": 3,
+    "mappings": "AAAA,AACI,WADO,CACP,KAAK,CAAC;EACF,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;CAQZ;;AAbL,AAOQ,WAPG,CACP,KAAK,CAMD,EAAE,CAAC;EACC,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,GAAG;EACZ,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "Navigation.scss"
+    ],
+    "names": [],
+    "file": "Navigation.css"
 }
