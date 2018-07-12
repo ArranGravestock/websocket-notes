@@ -7,9 +7,14 @@ import Note from './Notes'
 
 class App extends Component {
 
+  constructor() {
+    super()
+    this.webSocket = new WebSocket("ws://localhost:3001")
+  }
+
   componentWillMount() {
     //wss connect
-    let webSocket = new WebSocket("ws://localhost:3001")
+
   }
 
 
@@ -27,7 +32,7 @@ class App extends Component {
           </div>
         </div>
 
-        <Toolbar></Toolbar>
+        <Toolbar ws={this.webSocket}></Toolbar>
       </div>
     );
   }

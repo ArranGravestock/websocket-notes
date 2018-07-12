@@ -16,6 +16,7 @@ class Toolbar extends Component {
 
     toggleEditor() {
         this.setState({shouldRenderEditor: !this.state.shouldRenderEditor})
+
     }
 
     render() {
@@ -25,7 +26,7 @@ class Toolbar extends Component {
                 <div className="toolbar" onClick={() => {this.toggleEditor()}}>
                     <p>Take a note...</p>
                 </div>
-                <Editor toggleEditor={() => {this.toggleEditor()}} shouldRender={`-${this.state.shouldRenderEditor}`}/>
+                <Editor ws={this.props.ws} toggleEditor={() => {this.toggleEditor()}} shouldRender={`-${this.state.shouldRenderEditor}`}/>
             </div>
         )
     }
