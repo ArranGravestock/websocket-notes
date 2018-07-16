@@ -1,7 +1,7 @@
 .Editor {
   background-color: #fff;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   -webkit-transition: ease-in-out 300ms;
   transition: ease-in-out 300ms;
   bottom: 0;
@@ -20,6 +20,9 @@
   display: -ms-flexbox;
   display: flex;
   list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .Editor .nav ul li {

@@ -10,11 +10,22 @@ class App extends Component {
   constructor() {
     super()
     this.webSocket = new WebSocket("ws://localhost:3001")
+    this.state = {
+      notes: []
+    }
   }
 
   componentWillMount() {
-    //wss connect
 
+    //wss on update
+    this.webSocket.onmessage = (event) => {
+      var notes = JSON.parse(event.data).map(note => {
+        return (
+          <Note key={note.id} title={note.title} content={note.content} user={note.metadata.user}/>
+        )
+      })
+      this.setState({notes: notes})
+    }
   }
 
 
@@ -28,7 +39,7 @@ class App extends Component {
           </header>
 
           <div className="notes-wrapper">
-            <Note title="test-title" content="test-content" user="last-user"/>
+            {this.state.notes}
           </div>
         </div>
 

@@ -13,11 +13,10 @@ class Editor extends Component {
 
     sendData(data) {
         let ws = this.props.ws;
-        ws.send(data)
+        ws.send(JSON.stringify(data))
     }
 
     handleChange(prop, event) {
-        
         this.setState({
             [prop]: event.target.value
         })
@@ -25,7 +24,17 @@ class Editor extends Component {
 
     onEnter = data => event => {
         this.handleChange(data, event)
-        this.sendData(event.target.value)
+    }
+
+    addNote = (title, content) => {
+        console.log("addnote")
+        let msg = {
+            type: 'create',
+            title: title,
+            content: content,
+            metadata: {user: "test", time: "12:07", date:"12-03-18"}
+        }
+        this.sendData(msg)
     }
 
     render(){
@@ -35,6 +44,7 @@ class Editor extends Component {
             <div className={`Editor Editor${this.props.shouldRender}`}>
                 <nav className="nav">
                     <ul>
+                        <li onClick={() => this.addNote(this.state.title, this.state.content)}>Add</li>
                         <li onClick={this.props.toggleEditor}>Return</li>
                     </ul>
                 </nav>
