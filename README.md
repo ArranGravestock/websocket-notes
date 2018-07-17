@@ -28,7 +28,7 @@ Technologies used:
 - Hosted by digitalocean using serve and node
 
 Live demo can be found [here](http://209.97.180.214:5000/)
-ps. if the live demo seems to be down, either email arran@gravestock.net
+ps. if the live demo seems to be down email arran@gravestock.net
 
 ## create own local network notes
 find your own ip, via cmd and run `ipconfig`, edit `/websocket-notes/client/src/app.js` line 11, change the ip to your local ip (note: localhost will not work, requires direct ip)
