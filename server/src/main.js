@@ -1,52 +1,65 @@
 const WebSocket = require('ws');
 
-const ws = new WebSocket.Server({port: 3001});
+const wss = new WebSocket.Server({port: 3001});
 
 let notes = []
 let users_active = []
 
-ws.on('connection', function connection(ws, req) {
-  console.log("connected" + ws._socket.remoteAddress);
-  //users_active.push(ws._socket.remoteAddress)
+wss.on('connection', function connection(ws, req) {
+
+  //add the new client to the list of active users
+  users_active.push(ws._socket.remoteAddress)
+  let user = ws._socket.remoteAddress;
+  broadCast({type: 'clientList', data: users_active})
+
+  //initialise notes for a new connection
   ws.send(JSON.stringify(notes))
 
   ws.on('message', function incoming(message) {
     const msg = JSON.parse(message)
-    console.log(msg.type)
     switch(msg.type) {
       case "create":
-        createNote(msg.title, msg.content, msg.metadata)
-        ws.send(JSON.stringify(notes))
+        createNote(msg.title, msg.content, msg.metadata, ws._socket.remoteAddress)
+        broadCast(notes)
         break;
       case "delete":
         deleteNote(msg.id)
+        broadCast(notes)
         break;
       case "update":
         //test()
         break;
-      case "":
-        //test()
-        break;
     }
   })
+
+  ws.on('close', close = (ws, req) => {
+    console.log("closed" + user);
+    deleteActiveUser(user)
+    broadCast({type: 'clientList', data: users_active})
+  });
 });
 
-ws.on('close', function close(ws, req) {
-  console.log("closed" + ws._socket.remoteAddress);
 
-});
 
-const createNote = (title, content, metadata) => {
+const broadCast = (data) => {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify(data))
+    }
+  })
+}
+
+const createNote = (title, content, metadata, user) => {
 
   let obj = {
     id: notes.length + 1,
     title: title,
     content: content,
-    metadata: metadata
+    metadata: metadata,
+    user: user
   }
 
   notes.push(obj)
-  console.log(notes)
 }
 
 const deleteNote = (id) => {
@@ -54,12 +67,11 @@ const deleteNote = (id) => {
   notes.splice(notes.indexOf(note), 1)
 }
 
+const deleteActiveUser = (id) => {
+  let user = users_active.filter(n => n === id)
+  users_active.splice(users_active.indexOf(user), 1)
+}
+
 const updateNote = (title, content, metadata) => {
 
 }
-
-// createNote("test2", "test2", {id:"test"})
-// createNote("test3", "test3", {id:"test3"})
-// console.log(notes)
-// deleteNote(1)
-// console.log(notes)

@@ -9,25 +9,35 @@ class App extends Component {
 
   constructor() {
     super()
-    this.webSocket = new WebSocket("ws://localhost:3001")
+    this.webSocket = new WebSocket("ws://192.168.1.88:3001")
     this.state = {
       notes: []
     }
   }
 
-  componentWillMount() {
-
-    //wss on update
-    this.webSocket.onmessage = (event) => {
-      var notes = JSON.parse(event.data).map(note => {
-        return (
-          <Note key={note.id} title={note.title} content={note.content} user={note.metadata.user}/>
-        )
-      })
-      this.setState({notes: notes})
-    }
+  componentDidMount() {
+    window.addEventListener('beforeunload', (e) => {
+      this.webSocket.close()
+    })
   }
 
+  componentWillMount() {
+    //wss on update
+    this.webSocket.onmessage = (event) => {
+      let data = JSON.parse(event.data)
+      if(data.type) {
+        this.setState({active_users: data.data})
+      } else {
+        var notes = data.map(note => {
+          return (
+            <Note key={note.id} id={note.id} title={note.title} content={note.content} user={note.user} metadata={note.metadata} ws={this.webSocket}/>
+          )
+        })
+        this.setState({notes: notes})
+        window.localStorage.setItem("notes", this.state.notes);
+      }
+    }
+  }
 
   render() {
     return (
@@ -35,7 +45,7 @@ class App extends Component {
 
         <div className="content-wrapper">
           <header className="App-header">
-            <Navigation></Navigation>
+            <Navigation isConnected={this.webSocket.readyState} active_users={this.state.active_users}></Navigation>
           </header>
 
           <div className="notes-wrapper">

@@ -3,6 +3,24 @@ import './Notes.css'
 
 
 class Note extends Component {
+    state = {
+        id: this.props.id,
+        title: this.props.title,
+        content: this.props.content,
+    }
+
+    sendData(data) {
+        let ws = this.props.ws;
+        ws.send(JSON.stringify(data))
+    }
+
+    deleteNote = (id) => {
+        let msg = {
+            type: 'delete',
+            id: id
+        }
+        this.sendData(msg)
+    }
 
     render(){
 
@@ -12,8 +30,8 @@ class Note extends Component {
                     <header>
                         <h2>{this.props.title}</h2>
                         <div className="controls">
-                            <span>E</span>
-                            <span>X</span>
+                            <span>Edit</span>
+                            <span onClick={() => this.deleteNote(this.state.id)}>Delete</span>
                         </div>
                         
                     </header>
@@ -21,7 +39,7 @@ class Note extends Component {
                         <p>{this.props.content}</p>
                     </section>
                     <footer>
-                        <p>Last edited by: {this.props.user}</p>
+                        <p>Last edited by <b>{this.props.user}</b> at <b>{this.props.metadata.date}</b></p>
                     </footer>
                 </div>
             </div>

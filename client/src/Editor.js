@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './Editor.css'
 
-
 class Editor extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             title: '',
             content: ''
         }
+        this.toggleEditor = this.props.toggleEditor
+        this.ws = this.props.ws;
     }
 
     sendData(data) {
-        let ws = this.props.ws;
-        ws.send(JSON.stringify(data))
+        this.ws.send(JSON.stringify(data))
     }
 
     handleChange(prop, event) {
@@ -27,30 +27,33 @@ class Editor extends Component {
     }
 
     addNote = (title, content) => {
-        console.log("addnote")
-        let msg = {
-            type: 'create',
-            title: title,
-            content: content,
-            metadata: {user: "test", time: "12:07", date:"12-03-18"}
+        if(title && content) {
+            let d = new Date()
+            let msg = {
+                type: 'create',
+                title: title,
+                content: content,
+                metadata: {user: this.props.user, time: `${d.getHours()}:${d.getMinutes()}`, date:`${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`}
+            }
+            this.sendData(msg)
+            this.setState({title: '', content: ''})
         }
-        this.sendData(msg)
+       
     }
 
     render(){
-        
-
+    
         return(
             <div className={`Editor Editor${this.props.shouldRender}`}>
                 <nav className="nav">
                     <ul>
-                        <li onClick={() => this.addNote(this.state.title, this.state.content)}>Add</li>
-                        <li onClick={this.props.toggleEditor}>Return</li>
+                        <li onClick={() => {this.addNote(this.state.title, this.state.content);this.toggleEditor()}}>Add</li>
+                        <li onClick={this.toggleEditor}>Return</li>
                     </ul>
                 </nav>
                 <div className="content">
-                    <input className="editor-title" placeholder="Title" onChange={this.onEnter("title")}/>
-                    <textarea className="editor-textarea" placeholder="Note" onChange={this.onEnter("content")}></textarea>
+                    <input className="editor-title" placeholder="Title" onChange={this.onEnter("title")} value={this.state.title}/>
+                    <textarea className="editor-textarea" placeholder="Note" onChange={this.onEnter("content")} value={this.state.content}></textarea>
                 </div>
             </div>
         )

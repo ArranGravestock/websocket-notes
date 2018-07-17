@@ -39,11 +39,19 @@
           justify-content: flex-end;
 }
 
+.Note .container header .controls span {
+  padding: 0 .5em 0 0;
+}
+
 .Note .container section {
   text-align: left;
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
           flex: 1 100%;
+}
+
+.Note .container section p {
+  margin: 0 0 1em 0;
 }
 
 .Note .container footer {
@@ -56,5 +64,9 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
           flex: 1 100%;
+}
+
+.Note .container footer p {
+  margin: 0;
 }
 /*# sourceMappingURL=Notes.css.map */

@@ -23,18 +23,30 @@
             .controls {
                 display: flex;
                 justify-content: flex-end;
+
+                span {
+                    padding: 0 .5em 0 0; 
+                }
             }
         }
 
         section {
             text-align: left;
             flex: 1 100%;
+
+            p {
+                margin: 0 0 1em 0;
+            }
         }
 
         footer {
             display: flex;
             justify-content: space-between;
             flex: 1 100%;
+
+            p {
+                margin: 0;
+            }
         }
     }
 }
