@@ -25,7 +25,7 @@ Technologies used:
 - WebSocket.io
 - SASS (compiled with compass)
 
-Live demo can be found (http://209.97.180.214:5000/)[here]
+Live demo can be found [here](http://209.97.180.214:5000/)
 ps. if the live demo seems to be down, either email arran@gravestock.net
 
 ## create own local network notes
