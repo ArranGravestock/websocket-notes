@@ -42,7 +42,7 @@ class Note extends Component {
                         <p>{this.props.content}</p>
                     </section>
                     <footer>
-                        <p>Last edited by <b>{this.props.user}</b> at <b>{this.props.metadata.date}</b></p>
+                        <p>Last edited by <b>{this.props.user.replace('::ffff:', '')}</b> at <b>{this.props.metadata.date}</b></p>
                     </footer>
                 </div>
             </div>
