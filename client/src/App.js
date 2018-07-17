@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor() {
     super()
-    this.webSocket = new WebSocket("ws://192.168.1.88:3001")
+    this.webSocket = new WebSocket("ws://209.97.180.214:3001")
     this.state = {
       notes: []
     }
@@ -25,6 +25,7 @@ class App extends Component {
     //wss on update
     this.webSocket.onmessage = (event) => {
       let data = JSON.parse(event.data)
+
       if(data.type) {
         this.setState({active_users: data.data})
       } else {
@@ -34,7 +35,6 @@ class App extends Component {
           )
         })
         this.setState({notes: notes})
-        window.localStorage.setItem("notes", this.state.notes);
       }
     }
   }

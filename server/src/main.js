@@ -8,7 +8,7 @@ let users_active = []
 wss.on('connection', function connection(ws, req) {
 
   //add the new client to the list of active users
-  users_active.push(ws._socket.remoteAddress)
+  users_active.push(ws._socket.remoteAddress.replace('::ffff:', ''))
   let user = ws._socket.remoteAddress;
   broadCast({type: 'clientList', data: users_active})
 
@@ -27,7 +27,6 @@ wss.on('connection', function connection(ws, req) {
         broadCast(notes)
         break;
       case "update":
-        //test()
         break;
     }
   })
@@ -38,8 +37,6 @@ wss.on('connection', function connection(ws, req) {
     broadCast({type: 'clientList', data: users_active})
   });
 });
-
-
 
 const broadCast = (data) => {
   wss.clients.forEach(function each(client) {
@@ -72,6 +69,10 @@ const deleteActiveUser = (id) => {
   users_active.splice(users_active.indexOf(user), 1)
 }
 
-const updateNote = (title, content, metadata) => {
-
+const updateNote = (id, title, content, metadata) => {
+  let note = notes.filter(n => n.id === id)
+  note.title = title
+  note.content = content
+  note.metadata = metadata
+  notes[id] = note
 }

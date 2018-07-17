@@ -37,8 +37,7 @@ class Editor extends Component {
             }
             this.sendData(msg)
             this.setState({title: '', content: ''})
-        }
-       
+        }  
     }
 
     render(){

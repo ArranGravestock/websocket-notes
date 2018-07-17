@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import './Notes.css'
 
-
 class Note extends Component {
-    state = {
-        id: this.props.id,
-        title: this.props.title,
-        content: this.props.content,
+    constructor(props) {
+        super(props)
+        this.state = {
+            id: this.props.id,
+            title: this.props.title,
+            content: this.props.content,
+        }
+        this.ws = this.props.ws;
     }
 
+
     sendData(data) {
-        let ws = this.props.ws;
-        ws.send(JSON.stringify(data))
+        this.ws.send(JSON.stringify(data))
     }
 
     deleteNote = (id) => {
