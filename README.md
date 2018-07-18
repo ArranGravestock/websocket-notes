@@ -33,7 +33,7 @@ ps. if the live demo seems to be down email arran@gravestock.net
 ## create own local network notes
 find your own ip, via cmd and run `ipconfig`, edit `/websocket-notes/client/src/app.js` line 11, change the ip to your local ip (note: localhost will not work, requires direct ip)
 
-build your edit by running in `/websocket-notes/client`:
+build your edit by running in dir `/websocket-notes/client`, run:
 `npm run build`
 
 to run:
