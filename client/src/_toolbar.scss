@@ -5,13 +5,11 @@
     bottom: 0;
     width: 100%;
     text-align: left;
-    background-color: white;
-
+    background: white;
+    border-top: 3px solid #aaa;
     p {
-        color: #aaa;
-        margin: 1em 0.5em 1em 0.5em;
+        color: black;
+        text-align: center;
     }
-
-    @include shadow(0px, 0px, 5px, 0px, 50, 50, 50, 0.50);
     
 }

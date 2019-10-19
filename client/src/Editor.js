@@ -45,13 +45,13 @@ class Editor extends Component {
             <div className={`Editor Editor${this.props.shouldRender}`}>
                 <nav className="nav">
                     <ul>
-                        <li onClick={() => {this.addNote(this.state.title, this.state.content);this.toggleEditor()}}>Add</li>
-                        <li onClick={this.toggleEditor}>Return</li>
+                        <li onClick={() => {this.addNote(this.state.title, this.state.content);this.toggleEditor()}}><i class="fa-2x fas fa-plus"></i></li>
+                        <li onClick={this.toggleEditor}><i class="fa-2x fas fa-times"></i></li>
                     </ul>
                 </nav>
                 <div className="content">
-                    <input className="editor-title" placeholder="Title" onChange={this.onEnter("title")} value={this.state.title}/>
-                    <textarea className="editor-textarea" placeholder="Note" onChange={this.onEnter("content")} value={this.state.content}></textarea>
+                    <input className="editor-title" placeholder="Add a title..." onChange={this.onEnter("title")} value={this.state.title}/>
+                    <textarea className="editor-textarea" placeholder="Add a description..." onChange={this.onEnter("content")} value={this.state.content}></textarea>
                 </div>
             </div>
         )

@@ -14,8 +14,9 @@ body {
   }
   
   .App-header {
-    background-color: #222;
+    @include gradient(#333, #555);
     color: white;
+    border-bottom: 3px solid #aaa;
   
   }
   
@@ -35,3 +36,24 @@ body {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+
+  .status {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 8px;
+}
+
+.online {
+    @extend .status;
+    background-color: $live;
+}
+
+.offline {
+    @extend .status;
+    background-color: $offline;
+}
+
+.title-logo {
+    width: 40px;
+}

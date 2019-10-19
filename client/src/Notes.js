@@ -26,14 +26,17 @@ class Note extends Component {
 
     render(){
 
+        var styles = {
+            color: "rgba(100,100,100,100)"
+        }
+
         return(
             <div className={`Note`}>
                 <div className="container">
                     <header>
                         <h2>{this.props.title}</h2>
                         <div className="controls">
-                            <span>Edit</span>
-                            <span onClick={() => this.deleteNote(this.state.id)}>Delete</span>
+                            <span onClick={() => this.deleteNote(this.state.id)}><i style={styles} class="fas fa-trash-alt"></i></span>
                         </div>
                         
                     </header>
