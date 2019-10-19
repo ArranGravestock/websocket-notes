@@ -36,7 +36,7 @@ class Note extends Component {
                     <header>
                         <h2>{this.props.title}</h2>
                         <div className="controls">
-                            <span onClick={() => this.deleteNote(this.state.id)}><i style={styles} class="fas fa-trash-alt"></i></span>
+                            <span onClick={() => this.deleteNote(this.state.id)}><i style={styles} className="fas fa-trash-alt"></i></span>
                         </div>
                         
                     </header>
