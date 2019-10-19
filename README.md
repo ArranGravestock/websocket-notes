@@ -42,3 +42,6 @@ cd to `/websocket-notes/client/` and run:
 
 cd to `/websocket-notes/server/src/` and run:
 `node main.js`
+
+## running on digital ocean droplet
+`node /root/websocket-notes/server/src/main.js & npm start --prefix /root/websocket-notes/client`
