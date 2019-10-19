@@ -45,8 +45,8 @@ class Editor extends Component {
             <div className={`Editor Editor${this.props.shouldRender}`}>
                 <nav className="nav">
                     <ul>
-                        <li onClick={() => {this.addNote(this.state.title, this.state.content);this.toggleEditor()}}><i class="fa-2x fas fa-plus"></i></li>
-                        <li onClick={this.toggleEditor}><i class="fa-2x fas fa-times"></i></li>
+                        <li onClick={() => {this.addNote(this.state.title, this.state.content);this.toggleEditor()}}><i className="fa-2x fas fa-plus"></i></li>
+                        <li onClick={this.toggleEditor}><i className="fa-2x fas fa-times"></i></li>
                     </ul>
                 </nav>
                 <div className="content">
