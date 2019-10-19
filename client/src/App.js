@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Navigation from './nav'
 import Toolbar from './toolbar'
 import Note from './Notes'
