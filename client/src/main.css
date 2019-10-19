@@ -16,8 +16,10 @@ body {
 }
 
 .App-header {
-  background-color: #222;
+  background: -webkit-gradient(linear, left top, right top, from(#333), to(#555));
+  background: linear-gradient(to right, #333, #555);
   color: white;
+  border-bottom: 3px solid #aaa;
 }
 
 .App-title {
@@ -54,6 +56,25 @@ body {
   }
 }
 
+.status, .online, .offline {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-right: 8px;
+}
+
+.online {
+  background-color: #2ecc71;
+}
+
+.offline {
+  background-color: #c0392b;
+}
+
+.title-logo {
+  width: 40px;
+}
+
 .navigation .list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -70,6 +91,24 @@ body {
   padding: 1em;
   font-size: 1.5em;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation .list li span {
+  display: block;
+}
+
+i {
+  cursor: pointer;
 }
 
 .Editor {
@@ -80,16 +119,18 @@ body {
   transition: ease-in-out 300ms;
   bottom: 0;
   width: 100%;
-}
-
-.Editor .nav {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .Editor .nav ul {
-  padding: 0;
-  margin: 0 0 1em 0;
+  padding: 0 1em;
+  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,6 +138,10 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background: -webkit-gradient(linear, left top, right top, from(#333), to(#555));
+  background: linear-gradient(to right, #333, #555);
+  color: white;
+  border-bottom: 3px solid #aaa;
 }
 
 .Editor .nav ul li {
@@ -107,31 +152,44 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   text-align: left;
-  height: calc(100% - 4.5em);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0.5em 1em;
+  height: 100%;
 }
 
-.Editor .content * {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+.Editor .content input {
+  min-height: 2em;
+}
+
+.Editor .content input, .Editor .content textarea {
+  padding: 16px;
+}
+
+.Editor .content input:hover, .Editor .content textarea:hover {
+  background-color: #e1e1e1;
+}
+
+.Editor .content input:focus, .Editor .content textarea:focus {
+  outline: none;
+}
+
+.Editor .content textarea {
+  height: 100%;
 }
 
 .Editor .content .editor-title {
   font-size: 2em;
   border: 0;
-  margin-bottom: 0.5em;
-  padding: 0 2% 0 2%;
 }
 
 .Editor .content .editor-textarea {
-  height: calc(100% - 3em);
   font-size: 1.5em;
   resize: none;
   border: 0;
-  padding: 0 2% 0 2%;
 }
 
 .Editor-true {
@@ -142,49 +200,47 @@ body {
   height: 0;
 }
 
+.notes-wrapper {
+  margin: 20px;
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+}
+
 .Note {
   background-color: white;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  margin: 1em;
+  border-radius: 4px;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+  padding: 1em;
 }
 
 .Note .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: .5em;
-}
-
-.Note .container header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
 }
 
 .Note .container header h2 {
   margin: 0;
+  text-align: left;
 }
 
 .Note .container header .controls {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.Note .container header .controls span {
-  padding: 0 .5em 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em;
+  margin: 0.5em;
+  cursor: pointer;
 }
 
 .Note .container section {
@@ -195,22 +251,11 @@ body {
 }
 
 .Note .container section p {
-  margin: 0 0 1em 0;
-}
-
-.Note .container footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+  margin: 0;
 }
 
 .Note .container footer p {
+  text-align: left;
   margin: 0;
 }
 
@@ -219,13 +264,19 @@ body {
   bottom: 0;
   width: 100%;
   text-align: left;
-  background-color: white;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  background: white;
+  border-top: 3px solid #aaa;
 }
 
 .toolbar p {
-  color: #aaa;
-  margin: 1em 0.5em 1em 0.5em;
+  color: black;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .notes-wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
 }
 /*# sourceMappingURL=main.css.map */

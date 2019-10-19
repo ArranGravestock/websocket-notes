@@ -1,5 +1,12 @@
+$live: #2ecc71;
+$offline: #c0392b; 
+
 @mixin shadow( $offset-x, $offset-y, $blur, $spread, $r, $g, $b, $a) {
     -webkit-box-shadow: $offset-x $offset-y $blur $spread rgba($r, $g, $b, $a);
     -moz-box-shadow:    $offset-x $offset-y $blur $spread rgba($r, $g, $b, $a);
     box-shadow:         $offset-x $offset-y $blur $spread rgba($r, $g, $b, $a);
+}
+
+@mixin gradient($to, $from) {
+    background: linear-gradient(to right, $to, $from);
 }

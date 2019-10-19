@@ -10,8 +10,11 @@ class Navigation extends Component {
         return(
             <div className="navigation">
                 <ul className="list">
-                    <li className="title">Notes</li>
-                    <li onClick={() => this.showUsers(this.props.active_users)}>Status: {this.props.isConnected ? "Connected" : "Disconnected"}</li>
+                    <li className="title"><img class="title-logo" src="./logo.svg"/>Notes</li>
+                    <li onClick={() => this.showUsers(this.props.active_users)}>
+                        <span className={this.props.isConnected ? 'status online' : 'status offline'}></span>
+                        {this.props.isConnected ? "Online" : "Offline"}
+                    </li>
                 </ul>
             </div>
         )

@@ -22,7 +22,7 @@ class Toolbar extends Component {
         return(
             <div>
                 <div className="toolbar" onClick={() => {this.toggleEditor()}}>
-                    <p>Take a note...</p>
+                    <p>Create a note</p>
                 </div>
                 <Editor ws={this.props.ws} toggleEditor={() => {this.toggleEditor()}} shouldRender={`-${this.state.shouldRenderEditor}`}/>
             </div>
