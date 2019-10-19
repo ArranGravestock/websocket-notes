@@ -9,6 +9,6 @@
   "author": "Arran Gravestock",
   "license": "ISC",
   "dependencies": {
-    "ws": "^7.1.0"
+    "ws": "^7.1.2"
   }
 }
