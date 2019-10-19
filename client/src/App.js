@@ -7,7 +7,7 @@ class App extends Component {
 
   constructor() {
     super()
-    this.webSocket = new WebSocket("ws://209.97.180.214:3001")
+    this.webSocket = new WebSocket("ws://209.97.180.214:3002")
     this.state = {
       notes: []
     }
