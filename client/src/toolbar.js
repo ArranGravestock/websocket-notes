@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './Toolbar.css'
-
 import Editor from './Editor'
 
 

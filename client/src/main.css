@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oxygen', sans-serif;
+  background-color: #f3f3f3;
+}
+
+.App {
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: hidden;
+}
+
+.App-header {
+  background-color: #222;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.content-wrapper {
+  padding-bottom: 3em;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.navigation .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation .list li {
+  list-style: none;
+  padding: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.Editor {
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+  bottom: 0;
+  width: 100%;
+}
+
+.Editor .nav {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+.Editor .nav ul {
+  padding: 0;
+  margin: 0 0 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Editor .nav ul li {
+  padding: 1em;
+}
+
+.Editor .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: left;
+  height: calc(100% - 4.5em);
+}
+
+.Editor .content * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+.Editor .content .editor-title {
+  font-size: 2em;
+  border: 0;
+  margin-bottom: 0.5em;
+  padding: 0 2% 0 2%;
+}
+
+.Editor .content .editor-textarea {
+  height: calc(100% - 3em);
+  font-size: 1.5em;
+  resize: none;
+  border: 0;
+  padding: 0 2% 0 2%;
+}
+
+.Editor-true {
+  height: 100%;
+}
+
+.Editor-false {
+  height: 0;
+}
+
+.Note {
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  margin: 1em;
+}
+
+.Note .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: .5em;
+}
+
+.Note .container header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Note .container header h2 {
+  margin: 0;
+}
+
+.Note .container header .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.Note .container header .controls span {
+  padding: 0 .5em 0 0;
+}
+
+.Note .container section {
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+.Note .container section p {
+  margin: 0 0 1em 0;
+}
+
+.Note .container footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+.Note .container footer p {
+  margin: 0;
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+.toolbar p {
+  color: #aaa;
+  margin: 1em 0.5em 1em 0.5em;
+}
+/*# sourceMappingURL=main.css.map */
